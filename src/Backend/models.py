@@ -14,7 +14,7 @@ class User(db.model):
     id = db.Column(db.Integer(), primary_key = True)
     firstname = db.Column(db.String(20), unique = False, nullable = False)
     lastname = db.Column(db.String(20), unique = False, nullable = False)
-    number = db.Column(db.String(20), unique = True, nullable = False)
+    number = db.Column(db.String(12), unique = True, nullable = False)
     email = db.Column(EmailType(), unique=True, nullable = False)
     password = db.Column(db.String)
     timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
