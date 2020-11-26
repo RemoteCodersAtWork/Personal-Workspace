@@ -2,9 +2,10 @@ from wtforms import Form , StringField , PasswordField , SubmitField , validator
 from app.models import User
 
 class RegisterForm(Form) :
-    username = StringField("Username" , validators=[validators.DataRequired() ,validators.Length(min=4 , message = "Username must be at least 6 characters long.")])
+    fname = StringField("Firstname" , validators=[validators.DataRequired() ,validators.Length(min=2 , message = "Firstname must be at least 2 characters long.")])
+    lname = StringField("Lastname" , validators=[validators.DataRequired() ,validators.Length(min=2 , message = "Lastname must be at least 2 characters long.")])
     email = StringField("E-Mail" , validators=[validators.DataRequired() ,validators.Email() ,validators.Length(min=6 , message = "Email Address must be at least 6 characters long.")])
-    password = PasswordField("Password" , validators=[validators.DataRequired() ,validators.Length(min=4 , message = "Password must be at least 4 characters long.")])
+    password = PasswordField("Password" , validators=[validators.DataRequired() ,validators.Length(min=6 , message = "Password must be at least 6 characters long.")])
     confirm = PasswordField("Confirm Password" , validators=[validators.EqualTo('password' , message = "Passwords do not match.") ,validators.DataRequired()])
     submit = SubmitField("Sign Up")
 
@@ -19,6 +20,6 @@ class RegisterForm(Form) :
             raise validators.ValidationError("Email already exists.")
 
 class LoginForm(Form) :
-    username = StringField("Username" , validators=[validators.DataRequired() ,validators.Length(min=4 , max=20)])
-    password = PasswordField("Password" , validators=[validators.DataRequired() , validators.Length(min=4 , max=20)])
+    email = StringField("E-Mail", validators=[validators.DataRequired() ,validators.Length(min=6 , max=30)])
+    password = PasswordField("Password", validators=[validators.DataRequired() , validators.Length(min=6 , max=20)])
     submit = SubmitField("Login")

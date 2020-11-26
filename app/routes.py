@@ -24,7 +24,7 @@ def registerpage():
     if request.method == "POST" and form.validate():
 
         hashed = password.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data , email=form.email.data , password=hashed)
+        user = User(fname=form.fname.data ,lname=form.lname.data , email=form.email.data , password=hashed)
         
         db.session.add(user)
         db.session.commit()
@@ -46,15 +46,15 @@ def loginpage():
 
     if request.method == "POST" and form.validate():
 
-        member = User.query.filter_by(username = form.username.data).first()
+        member = User.query.filter_by(email = form.email.data).first()
 
         if member and password.check_password_hash(member.password , form.password.data):
             login_user(member)
-            flash("Welcome, %s!" % (form.username.data) , "success")
+            flash("Welcome, %s" % (form.fname.data), " %s!" % (form.lname.data), "success")
             return redirect(url_for("homepage"))
 
         else:
-            flash("Username or Password doesn't match, please try again." , "danger")
+            flash("Email or Password doesn't match, please try again." , "danger")
             return redirect(url_for("loginpage"))
 
     return render_template("login.html" , form=form)
