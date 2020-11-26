@@ -14,18 +14,31 @@
 	<div class="column is-half box" style="margin-top: 20px;">
 		<form method="post" action="" style="margin-top: 30px;">
 			<div class="field"> 
-                    {{ form.username.label(class="label") }}
-                    {% if form.username.errors %}
-                        {{ form.username(class="input is-danger") }}
+                    {{ form.fname.label(class="label") }}
+                    {% if form.fname.errors %}
+                        {{ form.fname(class="input is-danger") }}
                         <ul class="help is-danger">
-                            {% for error in form.username.errors %}
+                            {% for error in form.fname.errors %}
                             <li>{{ error }}</li>
                             {% endfor %}
                         </ul>
                     {% else %}
-                        {{ form.username(class="input") }}
+                        {{ form.fname(class="input") }}
                     {% endif %}
-			</div>
+            </div>
+            <div class="field"> 
+                    {{ form.lname.label(class="label") }}
+                    {% if form.lname.errors %}
+                        {{ form.lname(class="input is-danger") }}
+                        <ul class="help is-danger">
+                            {% for error in form.lname.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        {{ form.lname(class="input") }}
+                    {% endif %}
+            </div>
 			<div class="field">
                     {{ form.email.label(class="label") }}
                     {% if form.email.errors %}
