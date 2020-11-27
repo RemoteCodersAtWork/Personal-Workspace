@@ -9,7 +9,10 @@ from flask_login import login_user , current_user , logout_user , login_required
 
 def homepage():
 
-    return render_template("information.html")
+    if current_user.is_authenticated:
+        return render_template("members.html")
+    else:
+        return render_template("information.html")
 
 @app.route("/register" , methods=['GET','POST'])
 def registerpage():
@@ -29,7 +32,7 @@ def registerpage():
         db.session.add(user)
         db.session.commit()
 
-        flash("Account created for %s!" % (form.username.data) , "success")
+        flash("Account created for %s!" % (form.fname.data) , "success")
         return redirect(url_for("loginpage"))
 
     return render_template("register.html" , form=form)
@@ -50,7 +53,7 @@ def loginpage():
 
         if member and password.check_password_hash(member.password , form.password.data):
             login_user(member)
-            flash("Welcome, %s" % (form.fname.data), " %s!" % (form.lname.data), "success")
+            flash("Welcome, %s %s" % (member.fname, member.lname), "success")
             return redirect(url_for("homepage"))
 
         else:
@@ -65,7 +68,7 @@ def logoutpage():
     logout_user()
 
     flash("Successfuly logged out." , "success")
-    return redirect(url_for("homepage"))
+    return redirect(url_for("loginpage"))
 
 @app.route("/member-page")
 @login_required

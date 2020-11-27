@@ -133,3 +133,9 @@ dmypy.json
 
 #.replit
 .replit
+
+#sqlite
+*.sqlite
+
+#DS_Store
+.DS_Store
