@@ -18,7 +18,3 @@ class LoginForm(Form):
     email = StringField("E-Mail", validators=[validators.DataRequired() ,validators.Length(min=6 , max=30)])
     password = PasswordField("Password", validators=[validators.DataRequired() , validators.Length(min=6 , max=20)])
     submit = SubmitField("Login")
-
-class ForgotPasswordForm(Form):
-    email = StringField("E-Mail", validators=[validators.DataRequired() ,validators.Length(min=6 , max=30)])
-    confirm = StringField("Confirm Email" , validators=[validators.EqualTo('email' , message = "Emails do not match.") ,validators.DataRequired()])
