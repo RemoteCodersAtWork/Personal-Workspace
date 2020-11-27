@@ -27,8 +27,3 @@ class User(db.Model,UserMixin):
     
     def __repr__(self):
         return  'User(%s , %s , %s)' % (self.fname , self.lname, self.email)
-    
-    def get_reset_token(self, expires=500):
-        return jwt.encode({'reset_password': self.email,
-                           'exp':    time() + expires},
-                           key=os.getenv('SECRET_KEY_FLASK'))
