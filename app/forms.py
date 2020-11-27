@@ -21,4 +21,4 @@ class LoginForm(Form):
 
 class ForgotPasswordForm(Form):
     email = StringField("E-Mail", validators=[validators.DataRequired() ,validators.Length(min=6 , max=30)])
-    confirm = StringField("Confirm Email" , validators=[validators.EqualTo('email' , message = "Email do not match.") ,validators.DataRequired()])
+    confirm = StringField("Confirm Email" , validators=[validators.EqualTo('email' , message = "Emails do not match.") ,validators.DataRequired()])
