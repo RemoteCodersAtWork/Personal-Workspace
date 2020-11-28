@@ -1,9 +1,9 @@
 # Personal-Workspace
 # Run Code
 
-cd src
-pipenv shell
-pipenv install -r requirements.txt
-python run.py
+## cd to Root Directory of Project
+## pipenv install
+## pipenv shell
+## python run.py
 
-Run on http://127.0.0.1:5000/
+## Run on http://localhost:5000/
