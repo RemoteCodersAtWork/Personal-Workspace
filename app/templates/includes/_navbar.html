@@ -1,0 +1,16 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url_for('homepage') }}">Personal Workspace</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      {% if current_user.is_authenticated %}
+      <li><a href="{{ url_for('homepage') }}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="{{ url_for('logoutpage') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      {% else %}
+      <li><a href="{{ url_for('registerpage') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="{{ url_for('loginpage') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
