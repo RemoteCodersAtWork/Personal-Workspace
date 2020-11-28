@@ -74,7 +74,6 @@
 		box-shadow: 0 0 0;
 	}
 
-
 	.form-control-label {
 		font-size: 10px;
 		color: #6C6C6C;
@@ -89,6 +88,10 @@
 		font-weight: bold;
 		letter-spacing: 1px;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding-right: 0px;
+		text-align: left !important;
+		margin-bottom: 25px;
+		width: 100px;
 	}
 
 	.btn-outline-primary:hover {
@@ -96,18 +99,17 @@
 		right: 0px;
 	}
 
-	.login-btm {
-		float: left;
-	}
-
-	.login-button {
-		padding-right: 0px;
-		text-align: right;
-		margin-bottom: 25px;
-	}
-
 	.loginbttm {
 		padding: 0px;
+	}
+	.errlable {
+		color: red;
+	}
+	.successlable{
+		color: green;
+	}
+	.warninglable {
+		color: yellow
 	}
 </style>
 <div class="container">
@@ -124,8 +126,8 @@
 						<div class="form-group">
 							{{ form.email.label(class="form-control-label") }}
 							{% if form.email.errors %}
-									{{ form.email(class="input is-danger") }}
-									<div class="help is-danger">
+									{{ form.email(class="input form-control") }}
+									<div class="errlable">
 											{% for error in form.email.errors %}
 													{{ error }}
 											{% endfor %}
@@ -137,8 +139,8 @@
 						<div class="form-group">
 							{{ form.password.label(class="form-control-label") }}
 							{% if form.password.errors %}
-									{{ form.password(class="input is-danger") }}
-									<div class="help is-danger">
+									{{ form.password(class="input form-control") }}
+									<div class="errlable">
 											{% for error in form.password.errors %}
 													{{ error }}
 											{% endfor %}
@@ -150,8 +152,11 @@
 						<div class="col-lg-12 loginbttm">
 
 						</div>
-						<div class="field">
-								{{ form.submit(class="button btn btn-outline-primary") }}              
+						<div>
+							{{ form.submit(class="button btn btn-outline-primary") }}  
+							<a href="{{ url_for('registerpage') }}">
+								<button type="submit" class="button btn btn-outline-primary"/> Sign Up
+							</a>       
 						</div>
 					</form>
 				</div>

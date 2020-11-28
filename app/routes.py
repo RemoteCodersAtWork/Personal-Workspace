@@ -19,7 +19,7 @@ def registerpage():
 
     if current_user.is_authenticated:
 
-        flash("You are already logged in." , "warning")
+        flash("You are already logged in." , "warninglable")
         return redirect(url_for("homepage"))
 
     form = RegisterForm(request.form)
@@ -32,7 +32,7 @@ def registerpage():
         db.session.add(user)
         db.session.commit()
 
-        flash("Account created for %s!" % (form.fname.data) , "success")
+        flash("Account created for %s!" % (form.fname.data) , "successlable")
         return redirect(url_for("loginpage"))
 
     return render_template("register.html" , form=form)
@@ -41,8 +41,6 @@ def registerpage():
 def loginpage():
 
     if current_user.is_authenticated:
-
-        flash("You are already logged in." , "warning")
         return redirect(url_for("homepage"))
 
     form = LoginForm(request.form)
@@ -53,11 +51,10 @@ def loginpage():
 
         if member and password.check_password_hash(member.password , form.password.data):
             login_user(member)
-            flash("Welcome, %s %s" % (member.fname, member.lname), "success")
             return redirect(url_for("homepage"))
 
         else:
-            flash("Email or Password doesn't match, please try again." , "danger")
+            flash("Email or Password doesn't match, please try again." , "errlable")
             return redirect(url_for("loginpage"))
 
     return render_template("login.html" , form=form)
@@ -67,7 +64,7 @@ def logoutpage():
 
     logout_user()
 
-    flash("Successfuly logged out." , "success")
+    flash("Successfuly logged out." , "successlable")
     return redirect(url_for("loginpage"))
 
 @app.route("/member-page")
