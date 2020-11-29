@@ -1,13 +1,50 @@
 {% extends 'index.html' %}
 
 {% block body %}
-
-<section class="hero is-dark is-fullheight">
-    <div class="hero-body">
-      <div class="container">
-
+{% include "includes/_sidebar.html" %}
+<style>
+  .containerpanel {
+    margin-top: 50px;
+  }
+</style>
+<div id="page-content-wrapper">
+  <div class="container-fluid"> 
+    SLIDING TEXT FOR REMINDER
+  </div>
+  <div class="container-fluid">
+      <div class = "containerpanel">
+          <div class="row justify-content-md-center">
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example1</a>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example1 </a>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example2 </a>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example3 </a>
+            </div> 
+          </div>
+          <br><br>
+          <div class="row justify-content-md-center">
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example1</a>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example1 </a>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example2 </a>
+            </div>
+            <div class="col-sm-3">
+              <a href="#" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />example3 </a>
+            </div> 
+          </div>
       </div>
     </div>
-  </section>
-
+  </div>
+</div>
+</div>
 {% endblock %}
