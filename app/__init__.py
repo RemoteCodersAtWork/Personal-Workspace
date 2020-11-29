@@ -19,4 +19,4 @@ login_manager.login_message = "You are mot authorised to access this page. Pleas
 login_manager.login_message_category = "danger" 
 
 from app import routes
-from app.resources import login, register
+from app.resources import login, register#, password-manager
