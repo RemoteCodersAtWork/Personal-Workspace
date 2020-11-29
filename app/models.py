@@ -24,6 +24,5 @@ class User(db.Model,UserMixin):
 
     """Python __repr__() function returns the object representation. It could be any valid python expression such as tuple, dictionary, string etc.
     This method is called when repr() function is invoked on the object, in that case, __repr__() function must return a String otherwise error will be thrown."""
-    
     def __repr__(self):
         return  'User(%s , %s , %s)' % (self.fname , self.lname, self.email)
